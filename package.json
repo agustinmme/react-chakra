@@ -2,7 +2,7 @@
   "name": "react-chakra",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://agustinmme.github.com/ReactTest",
+  "homepage": "https://agustinmme.github.com/react-chakra",
   "dependencies": {
     "@chakra-ui/icons": "^1.0.13",
     "@chakra-ui/react": "^1.6.4",
