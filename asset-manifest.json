@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/react-chakra/static/css/main.8fece671.chunk.css",
-    "main.js": "/react-chakra/static/js/main.0fa323e2.chunk.js",
-    "main.js.map": "/react-chakra/static/js/main.0fa323e2.chunk.js.map",
+    "main.js": "/react-chakra/static/js/main.a6e437ba.chunk.js",
+    "main.js.map": "/react-chakra/static/js/main.a6e437ba.chunk.js.map",
     "runtime-main.js": "/react-chakra/static/js/runtime-main.61f59cac.js",
     "runtime-main.js.map": "/react-chakra/static/js/runtime-main.61f59cac.js.map",
-    "static/js/2.8a41d2b3.chunk.js": "/react-chakra/static/js/2.8a41d2b3.chunk.js",
-    "static/js/2.8a41d2b3.chunk.js.map": "/react-chakra/static/js/2.8a41d2b3.chunk.js.map",
+    "static/js/2.09248938.chunk.js": "/react-chakra/static/js/2.09248938.chunk.js",
+    "static/js/2.09248938.chunk.js.map": "/react-chakra/static/js/2.09248938.chunk.js.map",
     "index.html": "/react-chakra/index.html",
     "static/css/main.8fece671.chunk.css.map": "/react-chakra/static/css/main.8fece671.chunk.css.map",
-    "static/js/2.8a41d2b3.chunk.js.LICENSE.txt": "/react-chakra/static/js/2.8a41d2b3.chunk.js.LICENSE.txt"
+    "static/js/2.09248938.chunk.js.LICENSE.txt": "/react-chakra/static/js/2.09248938.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.61f59cac.js",
-    "static/js/2.8a41d2b3.chunk.js",
+    "static/js/2.09248938.chunk.js",
     "static/css/main.8fece671.chunk.css",
-    "static/js/main.0fa323e2.chunk.js"
+    "static/js/main.a6e437ba.chunk.js"
   ]
 }
