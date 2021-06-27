@@ -1,24 +1,23 @@
 import "./App.css";
-
-import Form from "./components/ToDo/ToDo";
-import {  Flex, Box } from "@chakra-ui/react";
-import Usuario from "./components/user/Usuario";
+import React, { useState } from "react";
+import ToDo from "./components/ToDo/ToDo";
+import { Flex, Box } from "@chakra-ui/react";
+import Usuario from "./components/ToDo/user/Usuario";
 import ColorModo from "./components/buttonColorMode/ColorModo";
 function App() {
-
-
+  const [post, setPost] = useState(0); // Es un arreglo rapido para no refactorizar mas...
 
   return (
     <div className="App mt-5">
-      <Flex align='center' justify='center'>
+      <Flex align="center" justify="center">
         <Box>
-        <ColorModo/>
+          <ColorModo />
         </Box>
-        <Box p="2" >
-          <Usuario />
+        <Box p="2">
+          <Usuario posteos={post} />
         </Box>
       </Flex>
-      <Form ></Form>
+      <ToDo getPost={setPost} num={post}></ToDo>
     </div>
   );
 }

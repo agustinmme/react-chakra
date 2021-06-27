@@ -11,7 +11,7 @@ function Mensaje(props) {
   return (
     <div>
       <Alert
-        status={type==="1"?"info":"warning"}
+        status={type === "1" ? "info" : "warning"}
         variant="subtle"
         flexDirection="column"
         alignItems="center"
@@ -23,9 +23,7 @@ function Mensaje(props) {
         <AlertTitle mt={4} mb={1} fontSize="lg">
           {title}
         </AlertTitle>
-        <AlertDescription maxWidth="sm">
-          {message}
-        </AlertDescription>
+        <AlertDescription maxWidth="sm">{message}</AlertDescription>
       </Alert>
     </div>
   );

@@ -1,31 +1,20 @@
 import React, { useState } from "react";
-import {
-  Button,
-  IconButton,
-  Input,
-  InputLeftAddon,
-  InputGroup,
-  Container,
-  Text,
-  Heading,
-  Stack,
-  List,
-  ListItem,
-  ListIcon,
-  Box,
-  Spacer,
-} from "@chakra-ui/react";
+import { Container, Heading, Stack } from "@chakra-ui/react";
 import Mensaje from "./Mensaje";
-import { ArrowRightIcon, DeleteIcon, EditIcon } from "@chakra-ui/icons";
+import Form from "./Form";
+import ListPlus from "./ListPlus";
 import uniqid from "uniqid";
 import { useColorMode } from "@chakra-ui/color-mode";
 
-const Formulario = () => {
+const Formulario = ({ getPost, num }) => {
   const { colorMode } = useColorMode();
+
   const isDark = colorMode === "dark";
 
   const [nombre, setNombre] = useState("");
+
   const [id, setId] = useState("");
+
   const [Listado, setListado] = useState([]);
 
   const [modEdit, setModEdit] = useState(false);
@@ -45,6 +34,7 @@ const Formulario = () => {
       setListado([...Listado, nuevoDato]);
       setNombre("");
       setError(null);
+      getPost(num + 1);
     }
   };
 
@@ -53,6 +43,7 @@ const Formulario = () => {
       const newArray = Listado.filter((item) => item.id !== id);
       setListado(newArray);
       setNombre("");
+      getPost(num - 1);
     } else {
       setError("no puedes borrar mientras editas");
     }
@@ -83,67 +74,25 @@ const Formulario = () => {
     <Container maxW="container.md" mt={5}>
       <Stack spacing={4}>
         <Heading>TODO APP</Heading>
-        <Box
-          bg={("white", "blackAlpha.200")}
-          py="8"
-          px={{ base: "4", md: "10" }}
-          shadow="base"
-          rounded={{ sm: "lg" }}
-        >
-          <List spacing={3}>
-            {Listado.map((item) => (
-              <ListItem key={item.id}>
-                <Box d="flex" alignItems="baseline">
-                  <ListIcon as={ArrowRightIcon} color="green.500" />
-                  <Text w="50%" color="gray.500" isTruncated>
-                    {item.dato}
-                  </Text>
-                  <Spacer />
-                  <IconButton
-                    variant={isDark ? "outline" : "solid"}
-                    icon={<DeleteIcon />}
-                    m={1}
-                    onClick={() => {
-                      deleteNombre(item.id);
-                    }}
-                    colorScheme="red"
-                  />
-                  <IconButton
-                    variant={isDark ? "outline" : "solid"}
-                    icon={<EditIcon />}
-                    m={1}
-                    onClick={() => {
-                      edit(item);
-                    }}
-                    colorScheme="blue"
-                  />
-                </Box>
-              </ListItem>
-            ))}
-          </List>
-        </Box>
+        <ListPlus
+          Lista={Listado}
+          onDelete={deleteNombre}
+          onEdit={edit}
+          theme={isDark}
+        />
+
         {error !== null ? (
           <Mensaje title="Error!" message={error} type={!modEdit ? "1" : "2"} />
         ) : (
           <></>
         )}
-        <form onSubmit={modEdit ? EditName : addDate} className="row">
-          <InputGroup>
-            <InputLeftAddon children="Tarea" />
-            <Input
-              placeholder="Introduce texto"
-              variant="outline"
-              size="md"
-              value={nombre}
-              onChange={(e) => {
-                setNombre(e.target.value);
-              }}
-            />
-          </InputGroup>
-          <Button m={4} type="submit" colorScheme={modEdit ? "green" : "blue"}>
-            {modEdit ? "Aceptar" : "Agregar"}
-          </Button>
-        </form>
+        <Form
+          onEnvio={modEdit ? EditName : addDate}
+          color={modEdit ? "green" : "blue"}
+          texto={modEdit ? "Aceptar" : "Agregar"}
+          nom={nombre}
+          changeNom={setNombre}
+        />
       </Stack>
     </Container>
   );
