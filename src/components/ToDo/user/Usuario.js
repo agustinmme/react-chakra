@@ -39,8 +39,8 @@ function Usuario({ posteos }) {
               : posteos >= 5
               ? "GOLD"
               : posteos >= 3
-              ? "PLATE"
-              : "BRONCE"}
+              ? "SILVER"
+              : "BRONZE"}
           </Badge>
         </Text>
         <Text fontSize="sm">Chakra-ui</Text>
